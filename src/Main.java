@@ -1,3 +1,4 @@
+import javax.sql.rowset.Predicate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -7,9 +8,12 @@ public class Main {
         List<Person> people = new ArrayList<>();
         people.add(new Person("Ольга", "Лос Анхелес Дюран", 27));
         people.add(new Person("Алексей", "Голенищев Кутузов Смоленский", 56));
+        people.add(new Person("Ксения", "Угрюмая", 14));
         people.add(new Person("Александр", "Спартан Пьяный", 22));
         people.add(new Person("Илья", "Гнилой", 18));
+        people.add(new Person("Даня", "Владыка", 16));
 
+        people.removeIf(minAge -> minAge.getAge() < 18);
         System.out.println(people);
 
         Collections.sort(people, new PersonsNameLengthComparator(3));
